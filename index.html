@@ -820,6 +820,9 @@ let introIndex = 0;
 let branchIndex = 0;
 let selectedBranch = null;
 let activeAudio = null;
+let activeAudioSource = null;
+let activeAudioGain = null;
+let sceneAudioContext = null;
 let musicAudio = null;
 let buttonAudio = null;
 let timerRemaining = CONFIG.offerDurationSeconds;
@@ -877,6 +880,14 @@ function stopSceneAudio() {
     activeAudio.currentTime = 0;
     activeAudio = null;
   }
+  if (activeAudioSource) {
+    activeAudioSource.disconnect();
+    activeAudioSource = null;
+  }
+  if (activeAudioGain) {
+    activeAudioGain.disconnect();
+    activeAudioGain = null;
+  }
 }
 
 function playSceneAudio(src) {
@@ -884,6 +895,20 @@ function playSceneAudio(src) {
   if (!src) return;
   activeAudio = new Audio(src);
   activeAudio.preload = "auto";
+  const AudioContextConstructor = window.AudioContext || window.webkitAudioContext;
+  if (AudioContextConstructor) {
+    sceneAudioContext ||= new AudioContextConstructor();
+    activeAudioSource = sceneAudioContext.createMediaElementSource(activeAudio);
+    activeAudioGain = sceneAudioContext.createGain();
+    activeAudioGain.gain.value = 1.4;
+    activeAudioSource.connect(activeAudioGain);
+    activeAudioGain.connect(sceneAudioContext.destination);
+    if (sceneAudioContext.state === "suspended") {
+      sceneAudioContext.resume().catch(error => {
+        console.log("Scene audio context could not resume:", error);
+      });
+    }
+  }
   activeAudio.play().catch(error => {
     console.log("Scene audio could not start:", error);
   });
@@ -893,7 +918,7 @@ function startMusic() {
   if (!CONFIG.music || musicAudio) return;
   musicAudio = new Audio(CONFIG.music);
   musicAudio.loop = true;
-  musicAudio.volume = 0.4;
+  musicAudio.volume = 0.1;
   musicAudio.play().catch(error => {
     console.log("Music autoplay blocked:", error);
   });
@@ -1006,10 +1031,7 @@ function showChoices() {
     button.appendChild(textBox);
     button.appendChild(arrow);
 
-    button.addEventListener("click", () => {
-      playButtonAudio();
-      chooseBranch(key);
-    });
+    button.addEventListener("click", () => chooseBranch(key));
     list.appendChild(button);
   });
 }
