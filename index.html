@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,7 @@
   --white: #fff;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
@@ -59,9 +58,7 @@ button {
 
 .topbar {
   flex: 0 0 auto;
-  padding:
-    max(12px, env(safe-area-inset-top))
-    16px 0;
+  padding: max(12px, env(safe-area-inset-top)) 16px 0;
   background: var(--bg);
   z-index: 5;
 }
@@ -188,21 +185,25 @@ button {
   position: absolute;
   inset: 0;
   z-index: 3;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
-  padding: 20px 17px 10%;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,.05) 15%,
-    rgba(0,0,0,.18) 38%,
-    rgba(0,0,0,.55) 60%,
-    rgba(0,0,0,.85) 78%,
-    rgba(0,0,0,.98) 100%
-  );
+  padding: 20px 17px 32%;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0,0,0,.06) 0%,
+      rgba(0,0,0,.28) 48%,
+      rgba(0,0,0,.62) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.0) 0%,
+      rgba(0,0,0,.1) 20%,
+      rgba(0,0,0,.45) 45%,
+      rgba(0,0,0,.8) 75%,
+      rgba(0,0,0,.95) 100%
+    );
 }
 
 .splash-copy {
@@ -218,7 +219,7 @@ button {
 }
 
 .splash-description {
-  color: #ded8d1;
+  color: #b8b2aa;
   font-size: clamp(11px, 3vw, 14px);
   line-height: 1.45;
   max-width: 95%;
@@ -232,16 +233,12 @@ button {
   width: 100%;
   min-height: 49px;
   padding: 13px 15px;
-
   border: none;
   border-radius: 10px;
-
   background: var(--gold);
   color: #17110a;
-
   font-size: clamp(14px, 3.7vw, 17px);
   font-weight: 900;
-
   box-shadow:
     0 5px 0 var(--gold-dark),
     0 0 15px #ffad1944;
@@ -258,7 +255,6 @@ button {
       0 5px 0 var(--gold-dark),
       0 0 12px #ffad1944;
   }
-
   50% {
     transform: scale(1.025);
     box-shadow:
@@ -285,9 +281,7 @@ button {
   display: flex;
   align-items: center;
   gap: 7px;
-
   padding: 7px 5px max(14px, env(safe-area-inset-bottom));
-
   color: #bdb3a9;
   font-size: 11px;
 }
@@ -308,13 +302,10 @@ button {
   position: absolute;
   inset: 0;
   z-index: 7;
-
   display: none;
   align-items: center;
   justify-content: center;
-
   padding: 17px 10px;
-
   background: rgba(0,0,0,.78);
   backdrop-filter: blur(6px);
 }
@@ -347,16 +338,12 @@ button {
   display: flex;
   align-items: center;
   gap: 11px;
-
   width: 100%;
   padding: 9px;
-
   border: 1px solid #55483b;
   border-radius: 12px;
-
   color: white;
   background: #292522;
-
   text-align: left;
   box-shadow: 0 5px 16px #0006;
 }
@@ -393,29 +380,32 @@ button {
 }
 
 /* =================================
-   PRE-FINAL SCREEN
-   Last story image remains visible.
+   PRE-FINAL SCREEN (Піднято вище та змінено градієнт)
 ================================= */
 
 .prefinal-overlay {
   position: absolute;
   inset: 0;
   z-index: 4;
-
   display: none;
   flex-direction: column;
   justify-content: flex-end;
-
-  padding: 0 15px 22px;
-
-  background: linear-gradient(
-    to bottom,
-    transparent 45%,
-    rgba(0,0,0,.12) 55%,
-    rgba(0,0,0,.45) 68%,
-    rgba(0,0,0,.88) 83%,
-    #191716 100%
-  );
+  padding: 20px 17px 32%;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0,0,0,.06) 0%,
+      rgba(0,0,0,.28) 48%,
+      rgba(0,0,0,.62) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.0) 0%,
+      rgba(0,0,0,.1) 20%,
+      rgba(0,0,0,.45) 45%,
+      rgba(0,0,0,.8) 75%,
+      rgba(0,0,0,.95) 100%
+    );
 }
 
 .prefinal-overlay.show {
@@ -439,28 +429,22 @@ button {
 
 .prefinal-button {
   width: 100%;
-  min-height: 75px;
-  padding: 17px 12px;
-
+  min-height: 60px;
+  padding: 15px 12px;
   border: none;
-  border-radius: 17px;
-
+  border-radius: 14px;
   background: var(--gold);
   color: #15100a;
-
-  font-size: clamp(19px, 5.5vw, 27px);
+  font-size: clamp(17px, 5vw, 24px);
   font-weight: 900;
-
   box-shadow:
-    0 9px 0 var(--gold-dark),
+    0 7px 0 var(--gold-dark),
     0 0 20px #ffad1944;
-
   animation: finalPulse 1.4s ease-in-out infinite;
 }
 
 /* =================================
    FINAL OFFER SCREEN
-   Covers approximately bottom half.
 ================================= */
 
 .final-overlay {
@@ -468,19 +452,14 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-
   height: 53%;
   z-index: 6;
-
   display: none;
   flex-direction: column;
   justify-content: center;
-
   padding: 19px 17px max(20px, env(safe-area-inset-bottom));
-
   background: #191716;
   border-radius: 17px 17px 0 0;
-
   box-shadow: 0 -12px 35px rgba(0,0,0,.3);
 }
 
@@ -491,16 +470,12 @@ button {
 
 .offer-tag {
   align-self: flex-start;
-
   padding: 5px 9px;
   border-radius: 5px;
-
   background: var(--gold);
   color: #17110a;
-
   font-size: 11px;
   font-weight: 900;
-
   margin-bottom: 10px;
 }
 
@@ -528,16 +503,12 @@ button {
 .final-button {
   width: 100%;
   min-height: 54px;
-
   border: none;
   border-radius: 11px;
-
   background: var(--gold);
   color: #17110a;
-
   font-size: clamp(15px, 4vw, 18px);
   font-weight: 900;
-
   box-shadow: 0 5px 0 var(--gold-dark);
 }
 
@@ -553,19 +524,14 @@ button {
 .music-toggle {
   position: absolute;
   z-index: 9;
-
   right: 14px;
   bottom: 12px;
-
   width: 33px;
   height: 33px;
-
   border: 1px solid #ffffff55;
   border-radius: 50%;
-
   background: #171514aa;
   color: white;
-
   display: none;
 }
 
@@ -587,7 +553,6 @@ button {
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -599,7 +564,6 @@ button {
     opacity: 0;
     transform: translateY(100%);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -610,14 +574,13 @@ button {
   0%, 100% {
     transform: scale(1);
     box-shadow:
-      0 9px 0 var(--gold-dark),
+      0 7px 0 var(--gold-dark),
       0 0 15px #ffad1944;
   }
-
   50% {
     transform: scale(1.025);
     box-shadow:
-      0 9px 0 var(--gold-dark),
+      0 7px 0 var(--gold-dark),
       0 0 30px #ffad19aa;
   }
 }
@@ -631,59 +594,23 @@ button {
 ================================= */
 
 @media (max-height: 650px) {
-
-  .topbar {
-    padding-top: 5px;
-  }
-
-  .progress {
-    margin-top: 7px;
-    margin-bottom: 5px;
-  }
-
-  .story-area {
-    padding-top: 4px;
-  }
-
-  .caption {
-    min-height: 29px;
-    padding-top: 5px;
-  }
-
-  .tap-hint {
-    padding-top: 3px;
-    padding-bottom: 5px;
-  }
-
-  .prefinal-button {
-    min-height: 58px;
-  }
-
-  .final-overlay {
-    height: 56%;
-  }
-
+  .topbar { padding-top: 5px; }
+  .progress { margin-top: 7px; margin-bottom: 5px; }
+  .story-area { padding-top: 4px; }
+  .caption { min-height: 29px; padding-top: 5px; }
+  .tap-hint { padding-top: 3px; padding-bottom: 5px; }
+  .prefinal-button { min-height: 52px; }
+  .final-overlay { height: 56%; }
 }
 
 @media (min-width: 600px) {
-
   #app {
     border-left: 1px solid #333;
     border-right: 1px solid #333;
   }
-
-  .topbar {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .story-area {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
+  .topbar { padding-left: 20px; padding-right: 20px; }
+  .story-area { padding-left: 10px; padding-right: 10px; }
 }
-
 </style>
 </head>
 
@@ -692,30 +619,20 @@ button {
 <div id="app">
 
   <!-- HEADER -->
-
   <header class="topbar">
-
     <div class="topline">
-
       <div class="limited" id="limitedLabel">
         Limited offer
       </div>
-
       <div class="timer">
-        Ends in <strong id="countdown">38d 05:20:01</strong>
+        Ends in <strong id="countdown">38d 05:29:01</strong>
       </div>
-
     </div>
-
     <div class="progress" id="progress"></div>
-
   </header>
 
-
   <!-- STORY AREA -->
-
   <main class="story-area">
-
     <div class="art-frame" id="artFrame">
 
       <img
@@ -726,320 +643,166 @@ button {
       >
 
       <!-- TAP AREA -->
-
       <button
         class="screen-tap"
         id="screenTap"
         aria-label="Tap to continue">
       </button>
 
-
       <!-- START SCREEN -->
-
       <div class="splash" id="splash">
-
         <div class="splash-copy">
-
           <div class="splash-title" id="splashTitle">
             Roxy's Journey
           </div>
-
           <div class="splash-description" id="splashDescription">
             Ethan brings his wife Victoria home to meet his family.
             Nobody turns out to be quite who they expected.
           </div>
-
         </div>
-
         <button class="primary-btn pulse" id="startButton">
           Start reading
         </button>
-
       </div>
 
-
       <!-- PRE-FINAL SCREEN -->
-
       <div class="prefinal-overlay" id="prefinalOverlay">
-
         <div class="prefinal-content">
-
           <div class="prefinal-title" id="prefinalTitle">
             What happens next?
           </div>
-
           <button
             class="prefinal-button"
             id="prefinalButton">
-
             Find out in Episode 1
-
           </button>
-
         </div>
-
       </div>
 
-
       <!-- FINAL SCREEN -->
-
       <div class="final-overlay" id="finalOverlay">
-
         <div class="offer-tag">
           Limited offer
         </div>
-
         <div class="final-title" id="finalTitle">
           Episode 1 is waiting
         </div>
-
         <div class="final-text" id="finalText">
           See where the story goes next in Episode 1.
         </div>
-
         <div class="final-small" id="finalSmall">
           Read Episode 1 free and get +50% bonus coins
           on your first pack. This week only.
         </div>
-
         <button
           class="final-button"
           id="finalButton">
-
           Read Episode 1
-
         </button>
-
       </div>
 
     </div>
 
-
     <!-- CAPTION -->
-
-    <div class="caption" id="caption"></div>
-
+    <div class="caption hidden" id="caption"></div>
 
     <!-- TAP HINT -->
-
-    <div class="tap-hint" id="tapHint">
-
+    <div class="tap-hint hidden" id="tapHint">
       <i class="tap-dot"></i>
-
       <span>Tap to continue</span>
-
     </div>
 
   </main>
 
-
   <!-- MUSIC -->
-
   <button
     class="music-toggle"
     id="musicToggle"
     aria-label="Toggle music">
-
     ♫
-
   </button>
 
-
   <!-- STORY CHOICE -->
-
   <div class="choice-overlay" id="choiceOverlay">
-
     <div class="choice-panel">
-
       <h2 class="choice-title">
         Whose ride do you follow?
       </h2>
-
       <div class="choice-list" id="choiceList"></div>
-
     </div>
-
   </div>
 
 </div>
 
-
 <script>
-
-/* ==========================================
-   CONFIGURATION
-   Replace paths with your own PNG and MP3.
-========================================== */
-
 const CONFIG = {
-
-  offerDurationSeconds:
-    38 * 24 * 60 * 60 + 5 * 60 * 60 + 1,
-
+  offerDurationSeconds: 38 * 24 * 60 * 60 + 5 * 60 * 60 + 1,
   splash: {
-
     image: "assets/scene-01.png",
-
     title: "Roxy's Journey",
-
-    description:
-      "Ethan brings his wife Victoria home to meet his family. Nobody turns out to be quite who they expected."
-
+    description: "Ethan brings his wife Victoria home to meet his family. Nobody turns out to be quite who they expected."
   },
-
   music: "audio/background-music.mp3",
-
   buttonAudio: "audio/btn_audio.mp3",
-
   finalUrl: "https://example.com/episodes",
-
   final: {
-
     title: "Episode 1 is waiting",
-
     text: "See where the story goes next in Episode 1.",
-
-    small:
-      "Read Episode 1 free and get +50% bonus coins on your first pack. This week only.",
-
+    small: "Read Episode 1 free and get +50% bonus coins on your first pack. This week only.",
     button: "Read Episode 1"
-
   },
-
-
-  /* FOUR INTRO SCENES */
-
   introScenes: [
-
     {
       image: "assets/scene-01.png",
       caption: "Two ATVs. Two very different rides.",
       audio: "audio/scene-01.mp3"
     },
-
     {
       image: "assets/scene-02.png",
       caption: "Then the trail gets bumpy.",
       audio: "audio/scene-02.mp3"
     },
-
     {
       image: "assets/scene-03.png",
       caption: "Victoria holds on tight.",
       audio: "audio/scene-03.mp3"
     },
-
     {
       image: "assets/scene-04.png",
       caption: "Roxy, Ethan's sister. She's not who he remembers.",
       audio: "audio/scene-04.mp3"
     }
-
   ],
-
-
-  /* STORY BRANCHES */
-
   branches: {
-
-    /* BRANCH 1 */
-
     roxy: {
-
       title: "Ethan & Roxy",
-
       description: "She drives. He holds on.",
-
       thumbnail: "assets/choice-roxy.png",
-
       scenes: [
-
-        {
-          image: "assets/roxy-01.png",
-          caption: "Roxy takes the lead.",
-          audio: "audio/roxy-01.mp3"
-        },
-
-        {
-          image: "assets/roxy-02.png",
-          caption: "Ethan holds on for dear life.",
-          audio: "audio/roxy-02.mp3"
-        },
-
-        {
-          image: "assets/roxy-03.png",
-          caption: "The trail winds deeper into the woods.",
-          audio: "audio/roxy-03.mp3"
-        },
-
-        {
-          image: "assets/roxy-04.png",
-          caption: "And her thoughts keep drifting.",
-          audio: "audio/roxy-04.mp3"
-        }
-
+        { image: "assets/roxy-01.png", caption: "Roxy takes the lead.", audio: "audio/roxy-01.mp3" },
+        { image: "assets/roxy-02.png", caption: "Ethan holds on for dear life.", audio: "audio/roxy-02.mp3" },
+        { image: "assets/roxy-03.png", caption: "The trail winds deeper into the woods.", audio: "audio/roxy-03.mp3" },
+        { image: "assets/roxy-04.png", caption: "And her thoughts keep drifting.", audio: "audio/roxy-04.mp3" }
       ],
-
       prefinalTitle: "What happens next?",
-
       finalTitle: "Episode 1 is waiting",
-
       finalText: "See where Roxy's ride ends in Episode 1."
-
     },
-
-
-    /* BRANCH 2 */
-
     victoria: {
-
       title: "Victoria & Ethan's dad",
-
-      description:
-        "She can't stop noticing the resemblance.",
-
+      description: "She can't stop noticing the resemblance.",
       thumbnail: "assets/choice-victoria.png",
-
-      // One scene less than Roxy branch.
-
       scenes: [
-
-        {
-          image: "assets/victoria-01.png",
-          caption: "Victoria holds on tight.",
-          audio: "audio/victoria-01.mp3"
-        },
-
-        {
-          image: "assets/victoria-02.png",
-          caption: "Victoria notices how much they resemble each other.",
-          audio: "audio/victoria-02.mp3"
-        },
-
-        {
-          image: "assets/victoria-03.png",
-          caption: "Victoria can't stop thinking about him.",
-          audio: "audio/victoria-03.mp3"
-        }
-
+        { image: "assets/victoria-01.png", caption: "Victoria holds on tight.", audio: "audio/victoria-01.mp3" },
+        { image: "assets/victoria-02.png", caption: "Victoria notices how much they resemble each other.", audio: "audio/victoria-02.mp3" },
+        { image: "assets/victoria-03.png", caption: "Victoria can't stop thinking about him.", audio: "audio/victoria-03.mp3" }
       ],
-
       prefinalTitle: "What happens next?",
-
       finalTitle: "Episode 1 is waiting",
-
       finalText: "See what Victoria does next in Episode 1."
-
     }
-
   }
-
 };
-
-
-/* ==========================================
-   ENGINE
-========================================== */
 
 const $ = id => document.getElementById(id);
 
@@ -1047,643 +810,289 @@ const image = $("sceneImage");
 const splash = $("splash");
 const caption = $("caption");
 const hint = $("tapHint");
-
 const progress = $("progress");
 const choiceOverlay = $("choiceOverlay");
-
 const prefinalOverlay = $("prefinalOverlay");
 const finalOverlay = $("finalOverlay");
 
 let mode = "splash";
-
 let introIndex = 0;
 let branchIndex = 0;
-
 let selectedBranch = null;
-
 let activeAudio = null;
 let musicAudio = null;
 let buttonAudio = null;
-
 let timerRemaining = CONFIG.offerDurationSeconds;
 let timerInterval = null;
-
 let currentSceneNumber = 0;
 
-
-/* ==========================================
-   TIMER
-========================================== */
-
 function formatTime(seconds) {
-
   const d = Math.floor(seconds / 86400);
-
   const h = Math.floor((seconds % 86400) / 3600);
-
   const m = Math.floor((seconds % 3600) / 60);
-
   const s = seconds % 60;
-
   return `${d}d ${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
-
 }
-
 
 function startTimer() {
-
   if (timerInterval) return;
-
-  $("countdown").textContent =
-    formatTime(timerRemaining);
-
+  $("countdown").textContent = formatTime(timerRemaining);
   timerInterval = setInterval(() => {
-
     timerRemaining = Math.max(0, timerRemaining - 1);
-
-    $("countdown").textContent =
-      formatTime(timerRemaining);
-
+    $("countdown").textContent = formatTime(timerRemaining);
     if (timerRemaining === 0) {
-
       clearInterval(timerInterval);
-
       timerInterval = null;
-
     }
-
   }, 1000);
-
 }
-
-
-/* ==========================================
-   PROGRESS
-========================================== */
 
 function getTotalScenes() {
-
   if (!selectedBranch) {
-
-    // Before the decision, reserve space for the
-    // longer branch so the progress indicator
-    // already communicates that more story remains.
-
     const longestBranch = Math.max(
-      ...Object.values(CONFIG.branches)
-        .map(branch => branch.scenes.length)
+      ...Object.values(CONFIG.branches).map(branch => branch.scenes.length)
     );
-
     return CONFIG.introScenes.length + longestBranch;
-
   }
-
-  return CONFIG.introScenes.length +
-    CONFIG.branches[selectedBranch].scenes.length;
-
+  return CONFIG.introScenes.length + CONFIG.branches[selectedBranch].scenes.length;
 }
-
 
 function updateProgress() {
-
   const total = getTotalScenes();
-
   progress.innerHTML = "";
-
   for (let i = 0; i < total; i++) {
-
     const segment = document.createElement("div");
-
     segment.className = "progress-segment";
-
     const fill = document.createElement("i");
-
     segment.appendChild(fill);
-
-    if (i < currentSceneNumber) {
-
-      segment.classList.add("done");
-
-    }
-
-    if (i === currentSceneNumber - 1) {
-
-      segment.classList.add("active");
-
-    }
-
+    if (i < currentSceneNumber) segment.classList.add("done");
+    if (i === currentSceneNumber - 1) segment.classList.add("active");
     progress.appendChild(segment);
-
   }
-
 }
-
-
-/* ==========================================
-   AUDIO
-========================================== */
 
 function stopSceneAudio() {
-
   if (activeAudio) {
-
     activeAudio.pause();
-
     activeAudio.currentTime = 0;
-
     activeAudio = null;
-
   }
-
 }
-
 
 function playSceneAudio(src) {
-
   stopSceneAudio();
-
   if (!src) return;
-
   activeAudio = new Audio(src);
-
   activeAudio.preload = "auto";
-
   activeAudio.play().catch(error => {
-
     console.log("Scene audio could not start:", error);
-
   });
-
 }
-
 
 function startMusic() {
-
   if (!CONFIG.music || musicAudio) return;
-
   musicAudio = new Audio(CONFIG.music);
-
   musicAudio.loop = true;
-
   musicAudio.volume = 0.4;
-
   musicAudio.play().catch(error => {
-
     console.log("Music autoplay blocked:", error);
-
   });
-
   $("musicToggle").classList.add("show");
-
 }
-
 
 function toggleMusic() {
-
   if (!musicAudio) return;
-
   if (musicAudio.paused) {
-
     musicAudio.play().catch(() => {});
-
     $("musicToggle").textContent = "♫";
-
   } else {
-
     musicAudio.pause();
-
     $("musicToggle").textContent = "♪";
-
   }
-
 }
 
-
 function playButtonAudio() {
-
   if (!CONFIG.buttonAudio) return;
-
   if (!buttonAudio) {
     buttonAudio = new Audio(CONFIG.buttonAudio);
     buttonAudio.volume = 0.9;
   }
-
   buttonAudio.pause();
   buttonAudio.currentTime = 0;
   buttonAudio.play().catch(() => {});
-
 }
 
-
-/* ==========================================
-   DISPLAY SCENE
-========================================== */
-
 function setScene(scene, number) {
-
   stopSceneAudio();
-
-  // Close any overlays left from the previous state.
-
   prefinalOverlay.classList.remove("show");
-
   finalOverlay.classList.remove("show");
 
   currentSceneNumber = number;
-
   updateProgress();
-
   image.src = scene.image;
-
   image.classList.remove("cover");
-
   caption.textContent = scene.caption || "";
-
+  caption.classList.remove("hidden");
   hint.classList.remove("hidden");
-
-  hint.innerHTML =
-    '<i class="tap-dot"></i><span>Tap to continue</span>';
-
+  hint.innerHTML = '<i class="tap-dot"></i><span>Tap to continue</span>';
   playSceneAudio(scene.audio);
-
 }
-
-
-/* ==========================================
-   START STORY
-========================================== */
 
 function startStory() {
-
   if (mode !== "splash") return;
-
   mode = "intro";
-
   splash.classList.add("hidden");
-
   $("limitedLabel").classList.add("active");
-
   startTimer();
-
   startMusic();
-
   introIndex = 0;
-
   setScene(CONFIG.introScenes[0], 1);
-
 }
-
-
-/* ==========================================
-   NEXT SCENE
-========================================== */
 
 function nextScene() {
-
   if (mode === "intro") {
-
     if (introIndex < CONFIG.introScenes.length - 1) {
-
       introIndex++;
-
-      setScene(
-        CONFIG.introScenes[introIndex],
-        introIndex + 1
-      );
-
+      setScene(CONFIG.introScenes[introIndex], introIndex + 1);
     } else {
-
       showChoices();
-
     }
-
     return;
-
   }
-
 
   if (mode === "branch") {
-
-    const scenes =
-      CONFIG.branches[selectedBranch].scenes;
-
+    const scenes = CONFIG.branches[selectedBranch].scenes;
     if (branchIndex < scenes.length - 1) {
-
       branchIndex++;
-
-      const sceneNumber =
-        CONFIG.introScenes.length + branchIndex + 1;
-
-      setScene(
-        scenes[branchIndex],
-        sceneNumber
-      );
-
+      const sceneNumber = CONFIG.introScenes.length + branchIndex + 1;
+      setScene(scenes[branchIndex], sceneNumber);
     } else {
-
       showPrefinal();
-
     }
-
   }
-
 }
 
-
-/* ==========================================
-   CHOICE SCREEN
-========================================== */
-
 function showChoices() {
-
   stopSceneAudio();
-
   mode = "choice";
-
-
-  $("artFrame").style.filter =
-    "blur(3px) brightness(.4)";
-
+  $("artFrame").style.filter = "blur(3px) brightness(.4)";
   caption.style.filter = "blur(2px)";
-
   hint.classList.add("hidden");
-
-  currentSceneNumber =
-    CONFIG.introScenes.length;
-
+  currentSceneNumber = CONFIG.introScenes.length;
   updateProgress();
-
   choiceOverlay.classList.add("show");
 
   const list = $("choiceList");
-
   list.innerHTML = "";
 
-  Object.entries(CONFIG.branches).forEach(
-    ([key, branch]) => {
+  Object.entries(CONFIG.branches).forEach(([key, branch]) => {
+    const button = document.createElement("button");
+    button.className = "choice-card";
+    const img = document.createElement("img");
+    img.src = branch.thumbnail;
+    img.alt = "";
+    const textBox = document.createElement("div");
+    const title = document.createElement("b");
+    title.textContent = branch.title;
+    const description = document.createElement("span");
+    description.textContent = branch.description;
+    textBox.appendChild(title);
+    textBox.appendChild(description);
+    const arrow = document.createElement("div");
+    arrow.className = "choice-arrow";
+    arrow.textContent = "›";
 
-      const button = document.createElement("button");
+    button.appendChild(img);
+    button.appendChild(textBox);
+    button.appendChild(arrow);
 
-      button.className = "choice-card";
-
-      const img = document.createElement("img");
-
-      img.src = branch.thumbnail;
-
-      img.alt = "";
-
-      const textBox = document.createElement("div");
-
-      const title = document.createElement("b");
-
-      title.textContent = branch.title;
-
-      const description = document.createElement("span");
-
-      description.textContent = branch.description;
-
-      textBox.appendChild(title);
-
-      textBox.appendChild(description);
-
-      const arrow = document.createElement("div");
-
-      arrow.className = "choice-arrow";
-
-      arrow.textContent = "›";
-
-      button.appendChild(img);
-
-      button.appendChild(textBox);
-
-      button.appendChild(arrow);
-
-      button.addEventListener("click", () => {
-        playButtonAudio();
-        chooseBranch(key);
-      });
-      list.appendChild(button);
-
-    }
-  );
-
+    button.addEventListener("click", () => {
+      playButtonAudio();
+      chooseBranch(key);
+    });
+    list.appendChild(button);
+  });
 }
-
-
-/* ==========================================
-   SELECT BRANCH
-========================================== */
 
 function chooseBranch(key) {
-
   if (mode !== "choice") return;
-
   selectedBranch = key;
-
   choiceOverlay.classList.remove("show");
-
   $("artFrame").style.filter = "";
-
   caption.style.filter = "";
-
   mode = "branch";
-
   branchIndex = 0;
-
   const branch = CONFIG.branches[key];
-
-
-  setScene(
-    branch.scenes[0],
-    CONFIG.introScenes.length + 1
-  );
-
+  setScene(branch.scenes[0], CONFIG.introScenes.length + 1);
 }
-
-
-/* ==========================================
-   PRE-FINAL SCREEN
-========================================== */
 
 function showPrefinal() {
-
   stopSceneAudio();
-
   mode = "prefinal";
-
   const branch = CONFIG.branches[selectedBranch];
-
-
-  currentSceneNumber =
-    CONFIG.introScenes.length + branch.scenes.length;
-
+  currentSceneNumber = CONFIG.introScenes.length + branch.scenes.length;
   updateProgress();
-
-
   image.src = branch.scenes[branch.scenes.length - 1].image;
-
-
-  hint.classList.remove("hidden");
-
-  hint.innerHTML = "<span>...</span>";
-
-
-  $("prefinalTitle").textContent =
-    branch.prefinalTitle || "What happens next?";
-
-
+  hint.classList.add("hidden"); // Ховаємо tap hint на передфінальній сцені
+  $("prefinalTitle").textContent = branch.prefinalTitle || "What happens next?";
   prefinalOverlay.classList.add("show");
-
 }
-
-
-/* ==========================================
-   FINAL OFFER SCREEN
-========================================== */
 
 function showFinalOffer() {
-
   if (mode !== "prefinal") return;
-
   mode = "final";
-
   const branch = CONFIG.branches[selectedBranch];
-
-
-  $("finalTitle").textContent =
-    branch.finalTitle || CONFIG.final.title;
-
-  $("finalText").textContent =
-    branch.finalText || CONFIG.final.text;
-
-  $("finalSmall").textContent =
-    CONFIG.final.small;
-
-  $("finalButton").textContent =
-    CONFIG.final.button;
-
-  // Hide the pre-final overlay and show
-  // the final offer panel.
-
+  $("finalTitle").textContent = branch.finalTitle || CONFIG.final.title;
+  $("finalText").textContent = branch.finalText || CONFIG.final.text;
+  $("finalSmall").textContent = CONFIG.final.small;
+  $("finalButton").textContent = CONFIG.final.button;
   prefinalOverlay.classList.remove("show");
-
   finalOverlay.classList.add("show");
-
 }
-
-
-/* ==========================================
-   FINAL WEBSITE REDIRECT
-========================================== */
 
 function openFinalWebsite() {
-
   if (!CONFIG.finalUrl) return;
-
   if (CONFIG.finalUrl === "https://example.com/episodes") {
-
     console.warn("Please set your real episode website URL in CONFIG.finalUrl");
-
     return;
-
   }
-
   window.open(CONFIG.finalUrl, "_blank");
-
 }
 
-
-/* ==========================================
-   EVENT LISTENERS
-========================================== */
-
-
-$("startButton").addEventListener(
-  "click",
-  startStory
-);
+$("startButton").addEventListener("click", startStory);
 
 $("screenTap").addEventListener("click", () => {
-
   if (mode === "intro" || mode === "branch") {
-
     nextScene();
-
   }
-
 });
 
-$("prefinalButton").addEventListener(
-  "click",
-  () => {
-    playButtonAudio();
-    showFinalOffer();
-  }
-);
+$("prefinalButton").addEventListener("click", () => {
+  playButtonAudio();
+  showFinalOffer();
+});
 
+$("finalButton").addEventListener("click", () => {
+  playButtonAudio();
+  openFinalWebsite();
+});
 
-// Final CTA opens external website.
+$("musicToggle").addEventListener("click", toggleMusic);
 
-$("finalButton").addEventListener(
-  "click",
-  () => {
-    playButtonAudio();
-    openFinalWebsite();
-  }
-);
-
-
-// Music toggle.
-
-$("musicToggle").addEventListener(
-  "click",
-  toggleMusic
-);
-
-
-/* ==========================================
-   INITIALIZATION
-========================================== */
-
-// Start illustration is the same as scene 1.
-
+// Initial setup
 image.src = CONFIG.splash.image;
-
-$("splashTitle").textContent =
-  CONFIG.splash.title;
-
-$("splashDescription").textContent =
-  CONFIG.splash.description;
-
-// Initial progress.
-
+$("splashTitle").textContent = CONFIG.splash.title;
+$("splashDescription").textContent = CONFIG.splash.description;
 currentSceneNumber = 0;
-
 updateProgress();
 
-// Disable page scrolling.
+$("app").addEventListener("touchmove", e => e.preventDefault(), { passive: false });
 
-$("app").addEventListener(
-  "touchmove",
-  e => e.preventDefault(),
-  { passive: false }
-);
-
-// Pause scene audio when tab is hidden.
-
-document.addEventListener(
-  "visibilitychange",
-  () => {
-
-    if (document.hidden && activeAudio) {
-
-      activeAudio.pause();
-
-    }
-
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden && activeAudio) {
+    activeAudio.pause();
   }
-);
-
+});
 </script>
 
 </body>
