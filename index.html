@@ -744,7 +744,7 @@ const CONFIG = {
   },
   music: "audio/background-music.mp3",
   buttonAudio: "audio/btn_audio.mp3",
-  finalUrl: "https://example.com/episodes",
+  finalUrl: "https://honeytoons.com/comic/roxys-journey-sp/1?visit_id=31ut2pi0ootp2310iu1o3t2pu0iit02up13ow1i0op2t3ubui1pt023oe0put321iortp1o20iu3vtuop1203iri3tpuo021z0op31uit2v32ui10otpy0opu2i3t1",
   final: {
     title: "Episode 1 is waiting",
     text: "See where the story goes next in Episode 1.",
@@ -1074,11 +1074,7 @@ function showFinalOffer() {
 
 function openFinalWebsite() {
   if (!CONFIG.finalUrl) return;
-  if (CONFIG.finalUrl === "https://example.com/episodes") {
-    console.warn("Please set your real episode website URL in CONFIG.finalUrl");
-    return;
-  }
-  window.open(CONFIG.finalUrl, "_blank");
+  window.location.assign(CONFIG.finalUrl);
 }
 
 $("startButton").addEventListener("click", startStory);
