@@ -625,7 +625,7 @@ button {
         Limited offer
       </div>
       <div class="timer">
-        Ends in <strong id="countdown">38d 05:29:01</strong>
+        Ends in <strong id="countdown">05:29:01</strong>
       </div>
     </div>
     <div class="progress" id="progress"></div>
@@ -736,7 +736,7 @@ button {
 
 <script>
 const CONFIG = {
-  offerDurationSeconds: 38 * 24 * 60 * 60 + 5 * 60 * 60 + 1,
+  offerDurationSeconds: 5 * 60 * 60 + 1,
   splash: {
     image: "assets/scene-01.png",
     title: "Roxy's Journey",
@@ -834,7 +834,7 @@ function formatTime(seconds) {
   const h = Math.floor((seconds % 86400) / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   const s = seconds % 60;
-  return `${d}d ${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+  return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
 }
 
 function startTimer() {
